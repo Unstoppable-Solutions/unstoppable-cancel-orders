@@ -1,0 +1,104 @@
+/* Unstoppable Cancel Orders: admin screen */
+
+.uoca-tabs-nav {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 20px 0;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.uoca-tab-link {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 20px;
+	text-decoration: none;
+	color: #50575e;
+	font-size: 14px;
+	font-weight: 500;
+	border-right: 1px solid #c3c4c7;
+	transition: background 0.15s ease, color 0.15s ease;
+}
+
+.uoca-tab-link:last-child {
+	border-right: none;
+}
+
+.uoca-tab-link:hover {
+	background: #f6f7f7;
+	color: #2271b1;
+}
+
+.uoca-tab-link.active {
+	background: #2271b1;
+	color: #fff;
+}
+
+.uoca-tab-link .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+}
+
+.uoca-card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	padding: 4px 20px 16px;
+	margin-bottom: 20px;
+}
+
+.uoca-card h2 {
+	margin-top: 16px;
+}
+
+.uoca-card .form-table {
+	margin-top: 0;
+}
+
+.uoca-status-list li {
+	margin-bottom: 6px;
+}
+
+.uoca-select {
+	min-width: 320px;
+	max-width: 100%;
+}
+
+.uoca-requests .uoca-decision form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+}
+
+.uoca-notice-button {
+	margin-left: 10px !important;
+}
+
+.uoca-settings-footer {
+	color: #646970;
+	margin-top: 24px;
+}
+
+@media (max-width: 960px) {
+	.uoca-tabs-nav {
+		flex-direction: column;
+	}
+
+	.uoca-tab-link {
+		border-right: none;
+		border-bottom: 1px solid #c3c4c7;
+	}
+
+	.uoca-tab-link:last-child {
+		border-bottom: none;
+	}
+
+	.uoca-select {
+		min-width: 0;
+		width: 100%;
+	}
+}
