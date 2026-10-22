@@ -1,0 +1,633 @@
+# Copyright (C) 2026 Unstoppable Solutions
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Unstoppable Cancel Orders for WooCommerce 2.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/unstoppable-cancel-orders\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-10-22T18:54:37+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.12.0\n"
+"X-Domain: unstoppable-cancel-orders\n"
+
+#. Plugin Name of the plugin
+#: unstoppable-cancel-orders.php
+msgid "Unstoppable Cancel Orders for WooCommerce"
+msgstr ""
+
+#. Plugin URI of the plugin
+#: unstoppable-cancel-orders.php
+msgid "https://unstoppablesolutions.app/plugins/unstoppable-cancel-orders/"
+msgstr ""
+
+#. Description of the plugin
+#: unstoppable-cancel-orders.php
+msgid "Let customers cancel eligible WooCommerce orders from My Account, or send a cancellation request for you to approve or decline."
+msgstr ""
+
+#. Author of the plugin
+#: unstoppable-cancel-orders.php
+msgid "Unstoppable Solutions"
+msgstr ""
+
+#. Author URI of the plugin
+#: unstoppable-cancel-orders.php
+msgid "https://unstoppablesolutions.app"
+msgstr ""
+
+#: includes/class-uoca-admin-notices.php:94
+msgid "Unstoppable Cancel Orders"
+msgstr ""
+
+#: includes/class-uoca-admin-notices.php:95
+msgid "Thanks for installing! Choose which orders customers can cancel on the Settings tab."
+msgstr ""
+
+#: includes/class-uoca-admin-notices.php:97
+msgid "Go to Settings"
+msgstr ""
+
+#: includes/class-uoca-admin.php:60
+#: includes/class-uoca-admin.php:61
+#: includes/class-uoca-admin.php:168
+#: includes/class-uoca-plugin.php:164
+msgid "Order Cancellation"
+msgstr ""
+
+#: includes/class-uoca-admin.php:117
+#: unstoppable-cancel-orders.php:79
+#: unstoppable-cancel-orders.php:80
+msgid "Dashboard"
+msgstr ""
+
+#: includes/class-uoca-admin.php:121
+#: includes/class-uoca-plugin.php:148
+msgid "Settings"
+msgstr ""
+
+#: includes/class-uoca-admin.php:162
+#: unstoppable-cancel-orders.php:92
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: includes/class-uoca-admin.php:173
+msgid "An earlier version of this plugin (\"Unstoppable WC Cancel Orders\") is still active. Your settings have been copied here. Deactivate the earlier version on the Plugins screen to switch over; until then, its cancel buttons stay in use and this plugin's are hidden."
+msgstr ""
+
+#: includes/class-uoca-admin.php:180
+msgid "Plugin sections"
+msgstr ""
+
+#: includes/class-uoca-admin.php:234
+msgid "Status"
+msgstr ""
+
+#: includes/class-uoca-admin.php:237
+msgid "Customer cancellations:"
+msgstr ""
+
+#: includes/class-uoca-admin.php:238
+msgid "On"
+msgstr ""
+
+#: includes/class-uoca-admin.php:238
+msgid "Off"
+msgstr ""
+
+#: includes/class-uoca-admin.php:241
+msgid "Mode:"
+msgstr ""
+
+#: includes/class-uoca-admin.php:242
+msgid "Customers cancel immediately"
+msgstr ""
+
+#: includes/class-uoca-admin.php:242
+msgid "Customers send a request for you to approve"
+msgstr ""
+
+#: includes/class-uoca-admin.php:246
+msgid "Change settings"
+msgstr ""
+
+#: includes/class-uoca-admin.php:251
+msgid "Pending cancellation requests"
+msgstr ""
+
+#: includes/class-uoca-admin.php:254
+msgid "There are no cancellation requests waiting for a decision."
+msgstr ""
+
+#: includes/class-uoca-admin.php:259
+msgid "Order"
+msgstr ""
+
+#: includes/class-uoca-admin.php:260
+msgid "Customer"
+msgstr ""
+
+#: includes/class-uoca-admin.php:261
+msgid "Requested"
+msgstr ""
+
+#: includes/class-uoca-admin.php:262
+#: includes/class-uoca-admin.php:550
+msgid "Reason"
+msgstr ""
+
+#: includes/class-uoca-admin.php:263
+msgid "Total"
+msgstr ""
+
+#: includes/class-uoca-admin.php:264
+msgid "Decision"
+msgstr ""
+
+#: includes/class-uoca-admin.php:274
+msgid "View all Pending Cancellation orders"
+msgstr ""
+
+#. translators: %s: order number
+#: includes/class-uoca-admin.php:318
+#, php-format
+msgid "Order #%s"
+msgstr ""
+
+#: includes/class-uoca-admin.php:342
+msgid "Approve"
+msgstr ""
+
+#: includes/class-uoca-admin.php:343
+msgid "Decline"
+msgstr ""
+
+#: includes/class-uoca-admin.php:359
+msgid "You do not have permission to manage orders."
+msgstr ""
+
+#. translators: %s: order number
+#: includes/class-uoca-admin.php:375
+#, php-format
+msgid "Cancellation approved. Order #%s is now cancelled."
+msgstr ""
+
+#. translators: %s: order number
+#: includes/class-uoca-admin.php:377
+#, php-format
+msgid "Cancellation declined. Order #%s is back to its previous status."
+msgstr ""
+
+#: includes/class-uoca-admin.php:381
+msgid "That request could not be updated. It may already have been handled."
+msgstr ""
+
+#: includes/class-uoca-admin.php:399
+msgid "Approve cancellation request"
+msgstr ""
+
+#: includes/class-uoca-admin.php:400
+msgid "Decline cancellation request"
+msgstr ""
+
+#: includes/class-uoca-admin.php:439
+msgid "Awaiting your decision"
+msgstr ""
+
+#: includes/class-uoca-admin.php:440
+msgid "Approved"
+msgstr ""
+
+#: includes/class-uoca-admin.php:441
+msgid "Declined"
+msgstr ""
+
+#: includes/class-uoca-admin.php:445
+msgid "Customer cancellation"
+msgstr ""
+
+#: includes/class-uoca-admin.php:447
+msgid "Request:"
+msgstr ""
+
+#: includes/class-uoca-admin.php:450
+#: templates/emails/plain/uoca-cancellation.php:34
+#: templates/emails/uoca-cancellation.php:41
+msgid "Reason:"
+msgstr ""
+
+#: includes/class-uoca-admin.php:453
+#: templates/emails/plain/uoca-cancellation.php:38
+#: templates/emails/uoca-cancellation.php:44
+msgid "Notes:"
+msgstr ""
+
+#: includes/class-uoca-admin.php:466
+msgid "Do not show"
+msgstr ""
+
+#: includes/class-uoca-admin.php:467
+msgid "Show, optional"
+msgstr ""
+
+#: includes/class-uoca-admin.php:468
+msgid "Show, required"
+msgstr ""
+
+#: includes/class-uoca-admin.php:475
+msgid "General"
+msgstr ""
+
+#: includes/class-uoca-admin.php:478
+msgid "Customer cancellations"
+msgstr ""
+
+#: includes/class-uoca-admin.php:482
+msgid "Let customers cancel orders"
+msgstr ""
+
+#: includes/class-uoca-admin.php:487
+#: includes/class-uoca-admin.php:490
+msgid "Mode"
+msgstr ""
+
+#: includes/class-uoca-admin.php:493
+msgid "Request: the customer asks, you approve or decline"
+msgstr ""
+
+#: includes/class-uoca-admin.php:497
+msgid "Direct: the order is cancelled immediately"
+msgstr ""
+
+#: includes/class-uoca-admin.php:499
+msgid "Requests appear on the Dashboard tab and in the order editor's Order actions box. Reduced stock is restored by WooCommerce when an order is cancelled. Refunds are not created automatically."
+msgstr ""
+
+#: includes/class-uoca-admin.php:504
+msgid "Cancellable order statuses"
+msgstr ""
+
+#: includes/class-uoca-admin.php:511
+msgid "The button only appears on orders in these statuses."
+msgstr ""
+
+#: includes/class-uoca-admin.php:515
+msgid "Customer roles"
+msgstr ""
+
+#: includes/class-uoca-admin.php:517
+msgid "All registered customers"
+msgstr ""
+
+#: includes/class-uoca-admin.php:522
+msgid "Leave empty to allow every registered customer."
+msgstr ""
+
+#: includes/class-uoca-admin.php:526
+msgid "Guest orders"
+msgstr ""
+
+#: includes/class-uoca-admin.php:530
+msgid "Let guest customers cancel from the order confirmation page"
+msgstr ""
+
+#: includes/class-uoca-admin.php:535
+msgid "Order emails"
+msgstr ""
+
+#: includes/class-uoca-admin.php:539
+msgid "Add a cancel link to customer order emails while the order can still be cancelled"
+msgstr ""
+
+#: includes/class-uoca-admin.php:547
+msgid "Reasons and notes"
+msgstr ""
+
+#: includes/class-uoca-admin.php:560
+msgid "Reason choices"
+msgstr ""
+
+#: includes/class-uoca-admin.php:563
+msgid "One reason per line. Customers pick one."
+msgstr ""
+
+#: includes/class-uoca-admin.php:567
+#: templates/myaccount/uoca-cancellation-modal.php:62
+msgid "Additional notes"
+msgstr ""
+
+#: includes/class-uoca-admin.php:580
+msgid "Text"
+msgstr ""
+
+#: includes/class-uoca-admin.php:583
+msgid "Button (direct mode)"
+msgstr ""
+
+#: includes/class-uoca-admin.php:584
+msgid "Button (request mode)"
+msgstr ""
+
+#: includes/class-uoca-admin.php:585
+msgid "Popup title (direct mode)"
+msgstr ""
+
+#: includes/class-uoca-admin.php:586
+msgid "Popup title (request mode)"
+msgstr ""
+
+#: includes/class-uoca-admin.php:589
+msgid "Popup message"
+msgstr ""
+
+#: includes/class-uoca-admin.php:598
+msgid "Data"
+msgstr ""
+
+#: includes/class-uoca-admin.php:601
+msgid "On uninstall"
+msgstr ""
+
+#: includes/class-uoca-admin.php:605
+msgid "Delete this plugin's settings when it is deleted"
+msgstr ""
+
+#: includes/class-uoca-admin.php:607
+msgid "Orders, order notes and cancellation details stored on orders are never deleted."
+msgstr ""
+
+#: includes/class-uoca-admin.php:641
+msgid "Support"
+msgstr ""
+
+#: includes/class-uoca-admin.php:643
+msgid "Pro add-on"
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:144
+msgid "You do not have permission to cancel this order."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:148
+msgid "This order can no longer be cancelled."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:156
+msgid "Please choose one of the listed reasons."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:158
+#: includes/class-uoca-frontend.php:187
+msgid "Please choose a reason for cancelling."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:166
+#: includes/class-uoca-frontend.php:188
+msgid "Please add a note explaining the cancellation."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:173
+msgid "Your order has been cancelled."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:176
+msgid "Your cancellation request has been sent. We will let you know once it has been reviewed."
+msgstr ""
+
+#. translators: %s: cancellation reason
+#: includes/class-uoca-cancellation.php:209
+#, php-format
+msgid "Reason: %s"
+msgstr ""
+
+#. translators: %s: customer notes
+#: includes/class-uoca-cancellation.php:214
+#, php-format
+msgid "Notes: %s"
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:236
+msgid "Order cancelled by the customer."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:260
+msgid "Cancellation requested by the customer."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:285
+msgid "Cancellation request approved."
+msgstr ""
+
+#: includes/class-uoca-cancellation.php:324
+msgid "Cancellation request declined."
+msgstr ""
+
+#. translators: %s: order number
+#: includes/class-uoca-frontend.php:101
+#, php-format
+msgid "Cancel order %s"
+msgstr ""
+
+#: includes/class-uoca-frontend.php:185
+msgid "Processing…"
+msgstr ""
+
+#: includes/class-uoca-frontend.php:186
+msgid "Something went wrong. Please try again."
+msgstr ""
+
+#: includes/class-uoca-frontend.php:209
+#: includes/class-uoca-settings.php:48
+#: includes/class-uoca-settings.php:50
+msgid "Cancel Order"
+msgstr ""
+
+#: includes/class-uoca-frontend.php:209
+msgid "Submit Request"
+msgstr ""
+
+#: includes/class-uoca-plugin.php:103
+#: includes/class-uoca-plugin.php:127
+#: includes/class-uoca-plugin.php:132
+msgctxt "Order status"
+msgid "Pending Cancellation"
+msgstr ""
+
+#. translators: %s: number of orders
+#: includes/class-uoca-plugin.php:109
+#, php-format
+msgid "Pending Cancellation <span class=\"count\">(%s)</span>"
+msgid_plural "Pending Cancellation <span class=\"count\">(%s)</span>"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/class-uoca-plugin.php:165
+msgid "Let customers cancel orders, or request cancellation for your approval."
+msgstr ""
+
+#: includes/class-uoca-plugin.php:184
+msgid "Unstoppable Cancel Orders for WooCommerce requires WooCommerce to be installed and active."
+msgstr ""
+
+#: includes/class-uoca-settings.php:41
+msgid "Changed my mind"
+msgstr ""
+
+#: includes/class-uoca-settings.php:42
+msgid "Found a better price"
+msgstr ""
+
+#: includes/class-uoca-settings.php:43
+msgid "Ordered by mistake"
+msgstr ""
+
+#: includes/class-uoca-settings.php:44
+msgid "Delivery time too long"
+msgstr ""
+
+#: includes/class-uoca-settings.php:45
+msgid "Other"
+msgstr ""
+
+#: includes/class-uoca-settings.php:49
+msgid "Request Cancellation"
+msgstr ""
+
+#: includes/class-uoca-settings.php:51
+msgid "Request Order Cancellation"
+msgstr ""
+
+#: includes/class-uoca-settings.php:52
+msgid "Are you sure you want to cancel this order?"
+msgstr ""
+
+#: includes/class-uoca-settings.php:178
+msgid "Add at least one cancellation reason, or turn the reason field off. The reason field has been turned off."
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:22
+msgid "Cancellation request (admin)"
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:23
+msgid "Sent to the store when a customer asks to cancel an order."
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:38
+msgid "[{site_title}] Cancellation request for order #{order_number}"
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:47
+msgid "Cancellation request"
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:56
+msgid "A customer has asked to cancel this order. Approve or decline it from Options Studio > Order Cancellation, or from the Order actions box in the order editor."
+msgstr ""
+
+#: includes/emails/class-uoca-email-admin-new-request.php:84
+msgid "Recipient(s)"
+msgstr ""
+
+#. translators: %s: admin email
+#: includes/emails/class-uoca-email-admin-new-request.php:87
+#, php-format
+msgid "Enter recipients (comma separated) for this email. Defaults to %s."
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-declined.php:23
+#: includes/emails/class-uoca-email-customer-request-declined.php:46
+msgid "Cancellation request declined"
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-declined.php:24
+msgid "Sent to customers when their cancellation request is declined."
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-declined.php:37
+msgid "Your cancellation request for order #{order_number}"
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-declined.php:55
+msgid "We were unable to cancel this order, so it will continue as normal. Please contact us if you have any questions."
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-received.php:23
+#: includes/emails/class-uoca-email-customer-request-received.php:46
+msgid "Cancellation request received"
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-received.php:24
+msgid "Sent to customers to confirm their cancellation request."
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-received.php:37
+msgid "We received your cancellation request for order #{order_number}"
+msgstr ""
+
+#: includes/emails/class-uoca-email-customer-request-received.php:55
+msgid "We have received your request to cancel this order. We will review it and let you know the outcome."
+msgstr ""
+
+#. translators: %s: customer first name
+#: templates/emails/plain/uoca-cancellation.php:28
+#: templates/emails/uoca-cancellation.php:31
+#, php-format
+msgid "Hi %s,"
+msgstr ""
+
+#: templates/myaccount/uoca-cancellation-modal.php:27
+#: templates/myaccount/uoca-cancellation-modal.php:33
+msgid "Close"
+msgstr ""
+
+#: templates/myaccount/uoca-cancellation-modal.php:45
+msgid "Reason for cancellation"
+msgstr ""
+
+#: templates/myaccount/uoca-cancellation-modal.php:47
+#: templates/myaccount/uoca-cancellation-modal.php:64
+msgid "required"
+msgstr ""
+
+#: templates/myaccount/uoca-cancellation-modal.php:66
+msgid "(optional)"
+msgstr ""
+
+#: templates/myaccount/uoca-cancellation-modal.php:74
+msgid "Keep my order"
+msgstr ""
+
+#: unstoppable-cancel-orders.php:68
+#: unstoppable-cancel-orders.php:69
+#: unstoppable-cancel-orders.php:98
+#: unstoppable-cancel-orders.php:167
+msgid "Options Studio"
+msgstr ""
+
+#: unstoppable-cancel-orders.php:99
+msgid "Your suite of WooCommerce tools by Unstoppable Solutions."
+msgstr ""
+
+#: unstoppable-cancel-orders.php:103
+msgid "No plugins registered yet."
+msgstr ""
+
+#: unstoppable-cancel-orders.php:111
+msgid "Open"
+msgstr ""
+
+#: unstoppable-cancel-orders.php:121
+msgid "Visit Unstoppable Solutions"
+msgstr ""
+
+#: unstoppable-cancel-orders.php:123
+msgid "Get Support"
+msgstr ""
+
+#: unstoppable-cancel-orders.php:170
+msgid "Options Studio Dashboard"
+msgstr ""

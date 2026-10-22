@@ -39,5 +39,7 @@ jobs:
             SECURITY.md
             CONTRIBUTING.md
             CHANGELOG.md
+            ROADMAP.md
+            phpcs.xml.dist
           include-experimental: true
 

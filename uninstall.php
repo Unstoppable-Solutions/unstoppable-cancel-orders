@@ -1,21 +1,27 @@
 <?php
 /**
- * Uninstall handler for __PLUGIN_NAME__.
+ * Uninstall.
  *
- * Runs when the plugin is deleted from Plugins → Installed Plugins. Deactivation
- * alone does NOT trigger this file. Clean up all plugin data (database tables,
- * options, transients, cron hooks) so the site is returned to the state it
- * was in before the plugin was installed.
+ * Settings are removed only when "Delete this plugin's settings when it is
+ * deleted" is ticked. Orders, order notes and the cancellation details stored
+ * on orders are never touched. Options left by the earlier
+ * "wc-order-cancellation" plugin belong to that plugin and are not removed.
  *
- * @package __PLUGIN_PACKAGE__
+ * @package Unstoppable_Cancel_Orders
  */
 
 defined( 'WP_UNINSTALL_PLUGIN' ) || exit;
 
-// Example cleanup — adjust as the plugin grows:
-//
-// delete_option( '__prefix___settings' );
-// delete_option( '__prefix___db_version' );
-//
-// global $wpdb;
-// $wpdb->query( "DROP TABLE IF EXISTS {$wpdb->prefix}__prefix___my_table" );
+$uoca_settings = get_option( 'uoca_settings', array() );
+
+if ( is_array( $uoca_settings ) && ! empty( $uoca_settings['remove_data_on_uninstall'] ) ) {
+	delete_option( 'uoca_settings' );
+	delete_option( 'uoca_migrated_from_legacy' );
+	delete_option( 'uoca_install_date' );
+	delete_option( 'uoca_welcome_notice_dismissed' );
+
+	// Plugin-owned WooCommerce email settings.
+	delete_option( 'woocommerce_uoca_admin_new_request_settings' );
+	delete_option( 'woocommerce_uoca_customer_request_received_settings' );
+	delete_option( 'woocommerce_uoca_customer_request_declined_settings' );
+}

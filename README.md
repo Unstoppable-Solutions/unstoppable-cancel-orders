@@ -1,111 +1,109 @@
-# Unstoppable Plugin Template
+# Unstoppable Cancel Orders for WooCommerce
 
-A ready-to-fork scaffold for new **Unstoppable Solutions** WordPress plugins. Click the green **Use this template** button above to spin up a new plugin repo with the same CI, auto-deploy workflow, and Unstoppable Solutions conventions already in place.
+Let WooCommerce customers cancel eligible orders from My Account, or send a cancellation request for the store to approve or decline.
 
-## What's in the box
+This repository is the development home of the **free** plugin distributed on WordPress.org. The WordPress.org listing text lives in [`readme.txt`](readme.txt).
 
-- Main plugin file with a WordPress.org-compliant header
-- `includes/class-plugin.php` — stub main class, activation / deactivation / admin-menu hooks already wired
-- `readme.txt` skeleton in the WordPress.org format (Description, Installation, FAQ, Screenshots, Privacy, Changelog, Upgrade Notice sections)
-- `uninstall.php` stub
-- `.github/workflows/plugin-check.yml` — runs the official WordPress Plugin Check on every push and PR
-- `.github/workflows/deploy-to-wporg.yml` — on a published GitHub Release, auto-deploys to WordPress.org SVN (dormant until the plugin is accepted into the directory)
-- `.distignore` so dev-only files (workflows, README.md, SECURITY.md) don't end up in the WordPress.org zip
-- `.gitignore` with sensible defaults for a PHP / WordPress project
-- `CLAUDE.md` — context for future Claude Code sessions working on the repo (release workflow, prefix / main-file naming, phpcs:ignore conventions)
-- Silence `index.php` in every directory
+| | |
+|---|---|
+| Slug / text domain | `unstoppable-cancel-orders` |
+| Current version | 2.0.0 |
+| Requires | WordPress 6.5+, PHP 7.4+, WooCommerce 7.0+ |
+| Tested with | WordPress 7.1.3, WooCommerce 11.2.1, PHP 8.3 |
+| Licence | GPL-2.0-or-later |
 
-## How to use
+## Features
 
-### 1. Create your new repo
+- **Two modes.** *Request*: the order moves to **Pending Cancellation** and the store approves or declines. *Direct*: the order is cancelled immediately.
+- **Approve or decline** from the plugin's Dashboard tab or from the order editor's *Order actions* box. Declined orders return to their previous status.
+- **Eligibility rules:** cancellable order statuses, customer roles, and guest orders (verified by the order key).
+- **Reason picker** (off / optional / required) with an editable list, and an **additional notes** box (off / optional / required).
+- **Customisable text** for buttons, popup title and popup message.
+- **Emails:** new request (admin), request received and request declined (customer). Approved requests send WooCommerce's own *Cancelled order* emails.
+- **Cancel link in customer order emails** while the order can still be cancelled.
+- Stock is restored by WooCommerce when an order is cancelled. **No refunds are created**; refunding stays a manual store decision.
+- HPOS compatible. No external services, no tracking.
+- Lives under the shared **Options Studio** admin menu used by every Unstoppable Solutions plugin.
 
-Click **Use this template** → **Create a new repository**.
+## Installation
 
-- **Repository name:** `unstoppable-your-plugin-slug` (lowercase-hyphens, must match the WordPress.org slug you plan to submit)
-- **Visibility:** Public
-- Create
+1. Install and activate WooCommerce.
+2. Download the latest release ZIP from this repository's Releases page (or, once listed, install from Plugins > Add New).
+3. Upload it under Plugins > Add New > Upload Plugin and activate it.
+4. Configure it under **Options Studio > Order Cancellation > Settings**.
 
-### 2. Clone it locally
+### Upgrading from "Unstoppable WC Cancel Orders" (`wc-order-cancellation`)
 
-```bash
-git clone https://github.com/paramedic192/unstoppable-your-plugin-slug.git
-cd unstoppable-your-plugin-slug
-```
+The earlier plugin used a different slug, so WordPress treats this as a new plugin. Install it alongside the old one: its settings are copied automatically on first run and the old settings are left untouched. While the old plugin is active, this one keeps its customer buttons hidden. Check the settings, then deactivate and delete the old plugin.
 
-### 3. Replace the template placeholders
+## Development
 
-Six tokens appear throughout the files. Replace them everywhere with your real plugin's values:
+### Requirements
 
-| Placeholder | Example value | Where it appears |
-|---|---|---|
-| `__PLUGIN_NAME__` | `Unstoppable My Plugin` | Human-readable name shown to users |
-| `__PLUGIN_SLUG__` | `unstoppable-my-plugin` | Slug, text domain, filenames |
-| `__PLUGIN_PACKAGE__` | `Unstoppable_My_Plugin` | @package annotation, class namespace |
-| `__PLUGIN_SHORT_DESCRIPTION__` | `Does one thing well on your WordPress site.` | Plugin header + readme.txt subtitle |
-| `__PREFIX__` | `UMPL` | 4-letter uppercase prefix for constants / classes |
-| `__prefix__` | `umpl` | Lowercase prefix for option names, table suffixes |
-| `__TAG1__` ... `__TAG5__` | `polls, voting, elections, ballot, surveys` | WordPress.org tags (max 5) |
+- PHP 7.4+ (CI and local testing use 8.3)
+- Composer, for the coding-standards tools
+- WP-CLI, for building the translation template and running Plugin Check
 
-A quick way to do all six at once on macOS / Linux (edit the values first):
+### Coding standards
 
 ```bash
-PLUGIN_NAME="Unstoppable My Plugin"
-PLUGIN_SLUG="unstoppable-my-plugin"
-PLUGIN_PACKAGE="Unstoppable_My_Plugin"
-PLUGIN_DESC="Does one thing well on your WordPress site."
-PREFIX_UPPER="UMPL"
-PREFIX_LOWER="umpl"
-
-# Replace tokens in all tracked text files:
-git ls-files | xargs -I{} sed -i.bak \
-  -e "s|__PLUGIN_NAME__|${PLUGIN_NAME}|g" \
-  -e "s|__PLUGIN_SLUG__|${PLUGIN_SLUG}|g" \
-  -e "s|__PLUGIN_PACKAGE__|${PLUGIN_PACKAGE}|g" \
-  -e "s|__PLUGIN_SHORT_DESCRIPTION__|${PLUGIN_DESC}|g" \
-  -e "s|__PREFIX__|${PREFIX_UPPER}|g" \
-  -e "s|__prefix__|${PREFIX_LOWER}|g" \
-  {}
-
-# Clean up the backup files sed makes:
-find . -name "*.bak" -delete
-
-# Rename the main plugin file to match the slug:
-git mv __PLUGIN_SLUG__.php "${PLUGIN_SLUG}.php"
+composer require --dev wp-coding-standards/wpcs:^3 phpcompatibility/phpcompatibility-wp
+vendor/bin/phpcs          # reads phpcs.xml.dist
+vendor/bin/phpcbf         # auto-fix what can be fixed
 ```
 
-Then edit `readme.txt` to replace the `__TAG1__` through `__TAG5__` placeholders with your real WordPress.org tags.
+The ruleset applies the WordPress standard, PHP 7.4+ compatibility, the `manage_woocommerce` capability, the text domain, and the `uoca` / `unstoppable_options_studio` / `unstoppable_studio` prefixes.
 
-### 4. Commit and push
+### Plugin Check
+
+The [Plugin Check workflow](.github/workflows/plugin-check.yml) runs on every push and pull request to `main`. To run it locally against a WordPress install:
 
 ```bash
-git add -A
-git commit -m "Scaffold new plugin from unstoppable-plugin-template"
-git push origin main
+wp plugin install plugin-check --activate
+wp plugin check unstoppable-cancel-orders --include-experimental
 ```
 
-The **Plugin Check** workflow will run against the clean scaffold. Fix anything it flags before writing your own code.
+### Translations
 
-### 5. When ready for WordPress.org
+```bash
+wp i18n make-pot . languages/unstoppable-cancel-orders.pot --slug=unstoppable-cancel-orders
+```
 
-- Submit the plugin at https://wordpress.org/plugins/developers/add/
-- Once accepted, add two secrets at **Settings → Secrets and variables → Actions**:
-  - `SVN_USERNAME` — your WordPress.org username
-  - `SVN_PASSWORD` — your WordPress.org SVN password (generate at https://profiles.wordpress.org/<you>/profile/edit/group/3/?screen=svn-password)
-- Create a GitHub Release tagged `v0.1.0` (or whatever your first release version is). The deploy workflow fires and pushes `trunk/` and `tags/` to WordPress.org SVN automatically.
+### Live testing
 
-## Conventions
+Always test the **built ZIP** on a real WordPress + WooCommerce site before a release: save the settings, then run request → approve, request → decline, direct cancel and guest cancel. Test on a block theme and a classic theme, with HPOS on and off. See `CLAUDE.md` for the full checklist.
 
-Every plugin created from this template inherits:
+## Releasing
 
-- GPL-2.0-or-later license (the exact string the WordPress.org directory requires)
-- Author: Unstoppable Solutions, Author URI: https://unstoppablesolutions.app
-- Contributor: `paramedic192`
-- Four-plus character class / constant prefixes (never `WC_` or any WordPress-reserved prefix)
-- ABSPATH guard at the top of every PHP file
-- Nonces + capability checks on every state change
-- `$wpdb->prepare()` on every database query
-- No outbound HTTP calls unless the plugin is explicitly a service integration (per WordPress.org Guideline 7)
+Development → pull request (Plugin Check must pass) → merge to `main` → live ZIP test → approved GitHub Release `vX.Y.Z` → automated SVN deploy → WordPress.org.
 
-## License
+1. Bump the version in the plugin header, the `UOCA_VERSION` constant and the `readme.txt` `Stable tag`. Add the changelog entry to `readme.txt` and `CHANGELOG.md`.
+2. Merge to `main`.
+3. Publish a GitHub Release tagged `vX.Y.Z`. [`deploy-to-wporg.yml`](.github/workflows/deploy-to-wporg.yml) pushes `trunk/` and `tags/X.Y.Z` to WordPress.org SVN using the files not excluded by [`.distignore`](.distignore), and attaches the ZIP to the Release.
 
-GPL-2.0-or-later. See the main plugin file header.
+The deploy is dormant until the plugin is accepted into the WordPress.org directory and the `SVN_USERNAME` / `SVN_PASSWORD` secrets are available. Publishing a Release is the only step that reaches WordPress.org, so do it only for an approved release.
+
+## Repository layout
+
+```
+unstoppable-cancel-orders.php   Bootstrap, plugin header, Options Studio shell
+includes/                       Plugin classes (settings, cancellation, front end, admin, emails)
+templates/                      Modal and email templates (theme-overridable)
+assets/                         CSS and JavaScript
+languages/                      Translation template (.pot)
+readme.txt                      WordPress.org listing
+uninstall.php                   Optional settings removal on delete
+.github/workflows/              Plugin Check CI and WordPress.org deploy
+ROADMAP.md                      Planned work
+CHANGELOG.md                    Release history
+```
+
+## Support
+
+- Website: https://unstoppablesolutions.app
+- Support: https://unstoppablesolutions.app/support · support@unstoppablesolutions.app
+- Bugs and feature requests: GitHub Issues on this repository (see [`CONTRIBUTING.md`](CONTRIBUTING.md))
+
+## Licence
+
+GPL-2.0-or-later. See [`license.txt`](license.txt).
